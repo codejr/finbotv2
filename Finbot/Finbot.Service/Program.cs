@@ -7,17 +7,13 @@ using Finbot.MarketData;
 using Finbot.Service;
 using Finbot.Trading;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Sentry;
 
-var builder = Host.CreateApplicationBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
 builder.Services.AddHttpClient<IMarketDataClient, MarketDataClient>(client =>
 {
-
     client.BaseAddress = new Uri(config.GetValue<string>("MarketData:BaseUri") ?? "");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
     client.DefaultRequestHeaders.Add("X-RapidAPI-Key", config.GetValue<string>("MarketData:ApiKey"));
@@ -49,5 +45,9 @@ using (var scope = host.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<FinbotDataContext>();
     db.Database.Migrate();
 }
+
+host.UseRouting();
+
+host.MapGet("/", () => "");
 
 await host.RunAsync();

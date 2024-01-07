@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finbot.Models", "Finbot.Mod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finbot.Trading", "Finbot.Trading\Finbot.Trading.csproj", "{AD335E16-33E5-40F3-AEA6-BA2FC57DF222}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finbot.Data", "Finbot.Data\Finbot.Data.csproj", "{C4D51D31-6B43-4813-B0BA-FD595241868B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finbot.Data", "Finbot.Data\Finbot.Data.csproj", "{C4D51D31-6B43-4813-B0BA-FD595241868B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22A4C22D-2AD1-4609-91DA-B4AF75B9A89D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
