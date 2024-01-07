@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="3.12.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
+    <PackageReference Include="Sentry" Version="3.39.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Finbot.MarketData\Finbot.MarketData.csproj" />
+    <ProjectReference Include="..\Finbot.Trading\Finbot.Trading.csproj" />
+  </ItemGroup>
+
+</Project>
