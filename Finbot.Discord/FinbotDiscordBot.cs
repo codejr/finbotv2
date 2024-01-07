@@ -2,6 +2,7 @@
 using Discord.Interactions;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Sentry;
 using System.Reflection;
@@ -61,7 +62,7 @@ namespace Finbot.Discord
 
         private async Task OnReady()
         {
-            await _interactionService.AddModulesAsync(Assembly.GetExecutingAssembly(), _serviceProvider);
+            await _interactionService.AddModulesAsync(Assembly.GetExecutingAssembly(), _serviceProvider.CreateScope().ServiceProvider);
 #if DEBUG
             await _interactionService.RegisterCommandsToGuildAsync(497583774045831185, true);
 #else

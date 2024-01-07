@@ -29,7 +29,7 @@ SentrySdk.Init(options =>
     options.EnableTracing = true;
 });
 
-builder.Services.AddDbContext<FinbotDataContext>(options => options.UseSqlite(config.GetConnectionString("TradingDB")));
+builder.Services.AddDbContext<FinbotDataContext>(options => options.UseNpgsql(config.GetConnectionString("TradingDB")));
 
 builder.Services.AddTransient<IPortfolioManager, PortfolioManager>();
 builder.Services.AddTransient<ITradeManager, TradeManager>();

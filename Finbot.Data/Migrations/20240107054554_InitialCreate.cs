@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -15,10 +16,10 @@ namespace Finbot.Data.Migrations
                 name: "Portfolios",
                 columns: table => new
                 {
-                    PortfolioId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    DiscordUserId = table.Column<ulong>(type: "INTEGER", nullable: false),
-                    CashBalance = table.Column<decimal>(type: "TEXT", nullable: false)
+                    PortfolioId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    DiscordUserId = table.Column<decimal>(type: "numeric(20,0)", nullable: false),
+                    CashBalance = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,14 +30,14 @@ namespace Finbot.Data.Migrations
                 name: "Trades",
                 columns: table => new
                 {
-                    TradeId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    PortfolioId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Symbol = table.Column<string>(type: "TEXT", nullable: false),
-                    Side = table.Column<int>(type: "INTEGER", nullable: false),
-                    Quantity = table.Column<decimal>(type: "TEXT", nullable: false),
-                    ExecutionPrice = table.Column<decimal>(type: "TEXT", nullable: false),
-                    ExecutionTime = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    TradeId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    PortfolioId = table.Column<int>(type: "integer", nullable: false),
+                    Symbol = table.Column<string>(type: "text", nullable: false),
+                    Side = table.Column<int>(type: "integer", nullable: false),
+                    Quantity = table.Column<decimal>(type: "numeric", nullable: false),
+                    ExecutionPrice = table.Column<decimal>(type: "numeric", nullable: false),
+                    ExecutionTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,13 +48,13 @@ namespace Finbot.Data.Migrations
                 name: "Positions",
                 columns: table => new
                 {
-                    PositionId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Symbol = table.Column<string>(type: "TEXT", nullable: false),
-                    Quantity = table.Column<decimal>(type: "TEXT", nullable: false),
-                    AveragePrice = table.Column<decimal>(type: "TEXT", nullable: false),
-                    LatestPrice = table.Column<decimal>(type: "TEXT", nullable: false),
-                    PortfolioId = table.Column<int>(type: "INTEGER", nullable: false)
+                    PositionId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Symbol = table.Column<string>(type: "text", nullable: false),
+                    Quantity = table.Column<decimal>(type: "numeric", nullable: false),
+                    AveragePrice = table.Column<decimal>(type: "numeric", nullable: false),
+                    LatestPrice = table.Column<decimal>(type: "numeric", nullable: false),
+                    PortfolioId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
