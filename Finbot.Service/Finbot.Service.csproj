@@ -7,6 +7,7 @@
     <UserSecretsId>130ad7af-7c57-48b5-bc85-9adac1864f95</UserSecretsId>
     <PlatformTarget>x64</PlatformTarget>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<DockerFileFile>../Dockerfile</DockerFileFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,5 +32,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 </Project>

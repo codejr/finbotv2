@@ -482,6 +482,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-Finbot/Finbot.Service/trading.db-wal
-Finbot/Finbot.Service/trading.db
-Finbot/Finbot.Service/trading.db-shm
+Finbot.Service/trading.db-wal
+Finbot.Service/trading.db
+Finbot.Service/trading.db-shm
