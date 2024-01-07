@@ -65,7 +65,7 @@ namespace Finbot.Discord
 #if DEBUG
             await _interactionService.RegisterCommandsToGuildAsync(497583774045831185, true);
 #else
-            await interactionService.RegisterCommandsGloballyAsync(true);
+            await _interactionService.RegisterCommandsGloballyAsync(true);
 #endif
         }
 
